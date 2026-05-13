@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جمعية المختصين الاجتماعيين - أكادير إداوتنان</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #006233;
+    --green-light: #007a3d;
+    --green-dark: #004a26;
+    --red: #c1121f;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --blue-dark: #0d2b45;
+    --blue-mid: #1a3f5c;
+    --white: #ffffff;
+    --off-white: #f8f6f1;
+    --light-gray: #f0ede6;
+    --text-dark: #1a1a2e;
+    --text-mid: #2c3e50;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    direction: rtl;
+    overflow-x: hidden;
+  }
+
+  /* ========== NAVBAR ========== */
+  nav {
+    position: fixed;
+    top: 0; right: 0; left: 0;
+    z-index: 1000;
+    background: rgba(13, 43, 69, 0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--gold);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    animation: slideDown 0.6s ease;
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .nav-brand img {
+    height: 44px;
+    filter: drop-shadow(0 0 6px rgba(212,160,23,0.5));
+  }
+
+  .nav-brand-text {
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .nav-brand-text span {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.3rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 50%; left: 50%;
+    height: 2px;
+    background: var(--gold-light);
+    transition: all 0.3s;
+  }
+
+  .nav-links a:hover::after { right: 10%; left: 10%; }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--green) !important;
+    color: var(--white) !important;
+    border: 1px solid var(--gold) !important;
+    font-weight: 700 !important;
+    padding: 0.45rem 1.2rem !important;
+  }
+
+  .nav-cta:hover { background: var(--green-light) !important; }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 40%, var(--green-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 2rem 60px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 70% 60% at 20% 50%, rgba(0,98,51,0.25) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 80% 30%, rgba(184,134,11,0.12) 0%, transparent 60%);
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.015) 40px,
+      rgba(255,255,255,0.015) 80px
+    );
+  }
+
+  /* Animated stars/dots */
+  .hero-dots {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .hero-dots::before,
+  .hero-dots::after {
+    content: '✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦';
+    position: absolute;
+    color: rgba(212,160,23,0.08);
+    font-size: 2rem;
+    letter-spacing: 3rem;
+    white-space: nowrap;
+    animation: floatDots 20s linear infinite;
+    top: 15%;
+    right: -10%;
+  }
+
+  .hero-dots::after {
+    top: 65%;
+    animation-duration: 28s;
+    animation-direction: reverse;
+    opacity: 0.6;
+    font-size: 1.2rem;
+  }
+
+  @keyframes floatDots {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  .hero-content {
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    animation: fadeUp 0.9s ease 0.2s both;
+  }
+
+  @keyframes fadeUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .hero-emblem {
+    margin: 0 auto 1.5rem;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(212,160,23,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  .hero-emblem img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 20px rgba(212,160,23,0.6));
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+  }
+
+  .hero-kingdom {
+    font-size: 0.9rem;
+    color: var(--gold-light);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .hero-title .highlight {
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: rgba(255,255,255,0.82);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-region {
+    font-size: 0.95rem;
+    color: var(--gold-light);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .hero-tagline {
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    color: rgba(255,255,255,0.75);
+    line-height: 1.9;
+    max-width: 680px;
+    margin: 0 auto 2.5rem;
+    padding: 1.2rem 2rem;
+    border-right: 3px solid var(--gold);
+    background: rgba(255,255,255,0.05);
+    border-radius: 0 8px 8px 0;
+    text-align: right;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--green);
+    color: var(--white);
+    padding: 0.85rem 2.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 2px solid var(--gold);
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Tajawal', sans-serif;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--green-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,98,51,0.4);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid rgba(255,255,255,0.4);
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Tajawal', sans-serif;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold-light);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s ease-in-out infinite;
+    color: rgba(255,255,255,0.5);
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ========== SECTION BASE ========== */
+  section { padding: 80px 2rem; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--green), var(--green-light));
+    color: var(--white);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 0.35rem 1.2rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--gold);
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    color: var(--blue-dark);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--gold));
+    margin: 0.8rem auto;
+    border-radius: 2px;
+  }
+
+  .section-desc {
+    color: #5a6472;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ========== ABOUT ========== */
+  .about { background: var(--off-white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card-main {
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
+    border-radius: 16px;
+    padding: 3rem 2.5rem;
+    color: var(--white);
+    border: 1px solid rgba(212,160,23,0.3);
+    box-shadow: 0 20px 60px rgba(13,43,69,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-card-main::before {
+    content: '';
+    position: absolute;
+    top: -30px; left: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(212,160,23,0.1);
+  }
+
+  .about-card-main .icon-big {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .about-card-main h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--gold-light);
+  }
+
+  .about-card-main p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .stat-box {
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+    border: 1px solid rgba(212,160,23,0.2);
+  }
+
+  .stat-box .num {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .stat-box .label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 0.2rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: var(--blue-dark);
+    margin-bottom: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .about-text h2 span { color: var(--green); }
+
+  .about-text p {
+    color: #4a5568;
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+
+  .about-list {
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .about-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.95rem;
+    color: #2d3748;
+  }
+
+  .about-list li::before {
+    content: '◆';
+    color: var(--green);
+    font-size: 0.6rem;
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+  }
+
+  /* ========== TASKS ========== */
+  .tasks { background: var(--white); }
+
+  .tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .task-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border: 1px solid #e8ecf0;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .task-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--gold));
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .task-card:hover::before { transform: scaleX(1); }
+
+  .task-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    border-color: rgba(0,98,51,0.2);
+  }
+
+  .task-icon {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: grayscale(0.1);
+  }
+
+  .task-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .task-card p {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.7;
+  }
+
+  /* ========== GOALS ========== */
+  .goals {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--green-dark) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .goals::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 50px,
+      rgba(255,255,255,0.02) 50px,
+      rgba(255,255,255,0.02) 100px
+    );
+  }
+
+  .goals .section-title { color: var(--white); }
+  .goals .section-desc { color: rgba(255,255,255,0.7); }
+
+  .goals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .goal-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(212,160,23,0.25);
+    border-radius: 12px;
+    padding: 1.8rem 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .goal-item:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  .goal-num {
+    font-size: 0.75rem;
+    color: var(--gold-light);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+  }
+
+  .goal-icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+
+  .goal-item h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .goal-item p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  /* ========== NEWS ========== */
+  .news { background: var(--light-gray); }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .news-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s;
+  }
+
+  .news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  }
+
+  .news-img {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
+
+  .news-img.green { background: linear-gradient(135deg, var(--green-dark), var(--green-light)); }
+  .news-img.blue { background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid)); }
+  .news-img.gold { background: linear-gradient(135deg, #7a5c0a, var(--gold)); }
+
+  .news-body { padding: 1.4rem; }
+
+  .news-tag {
+    font-size: 0.72rem;
+    color: var(--green);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  .news-body h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+  }
+
+  .news-body p {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .news-date {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 0.8rem;
+  }
+
+  .center { text-align: center; }
+
+  /* ========== RESOURCES ========== */
+  .resources { background: var(--white); }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .resource-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+    background: var(--off-white);
+  }
+
+  .resource-item:hover {
+    border-color: var(--green);
+    background: rgba(0,98,51,0.04);
+    transform: translateX(-4px);
+  }
+
+  .res-icon {
+    width: 50px; height: 50px;
+    background: linear-gradient(135deg, var(--red), #e83030);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .res-info h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: 0.25rem;
+  }
+
+  .res-info p {
+    font-size: 0.8rem;
+    color: #64748b;
+  }
+
+  .res-arrow {
+    margin-right: auto;
+    color: var(--green);
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+  }
+
+  .resource-item:hover .res-arrow { transform: translateX(-4px); }
+
+  /* ========== OFFICE BOARD CAROUSEL ========== */
+  .office { background: var(--off-white); overflow: hidden; }
+
+  .carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 0 2rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1.4rem;
+    width: max-content;
+    cursor: grab;
+    will-change: transform;
+  }
+
+  .carousel-track:active { cursor: grabbing; }
+
+  .member-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 2rem 1.4rem 1.6rem;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    transition: box-shadow 0.3s, border-color 0.3s;
+    width: 185px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .member-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green), var(--gold));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: right;
+  }
+
+  .member-card:hover::before { transform: scaleX(1); }
+
+  .member-card:hover {
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    border-color: rgba(184,134,11,0.3);
+  }
+
+  .member-avatar {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.1rem;
+    border: 3px solid var(--gold);
+    box-shadow: 0 6px 20px rgba(184,134,11,0.35);
+    position: relative;
+    pointer-events: none;
+  }
+
+  .member-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    pointer-events: none;
+    -webkit-user-drag: none;
+  }
+
+  .member-role {
+    font-size: 0.68rem;
+    color: var(--green);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 0.4rem;
+    background: rgba(0,98,51,0.08);
+    padding: 0.25rem 0.7rem;
+    border-radius: 12px;
+    display: inline-block;
+    line-height: 1.4;
+  }
+
+  .member-name {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--blue-dark);
+    margin-top: 0.4rem;
+    line-height: 1.45;
+  }
+
+  /* Gradient fades on sides */
+  .carousel-fade-right {
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px; height: 100%;
+    background: linear-gradient(to left, var(--off-white), transparent);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .carousel-fade-left {
+    position: absolute;
+    top: 0; left: 0;
+    width: 60px; height: 100%;
+    background: linear-gradient(to right, var(--off-white), transparent);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .carousel-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--green);
+    background: var(--white);
+    color: var(--green);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    touch-action: manipulation;
+  }
+
+  .carousel-btn:hover, .carousel-btn:active {
+    background: var(--green);
+    color: var(--white);
+  }
+
+  /* ========== MEMBERSHIP FORM ========== */
+  .membership {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--blue-dark) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .membership::before {
+    content: '⬡ ⬡ ⬡ ⬡ ⬡ ⬡ ⬡ ⬡';
+    position: absolute;
+    top: -20px; right: -20px;
+    font-size: 6rem;
+    color: rgba(255,255,255,0.03);
+    letter-spacing: 2rem;
+    line-height: 1;
+  }
+
+  .membership .section-title { color: var(--white); }
+  .membership .section-desc { color: rgba(255,255,255,0.75); }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    outline: none;
+  }
+
+  .form-group input::placeholder { color: rgba(255,255,255,0.45); }
+
+  .form-group select option { background: var(--blue-dark); color: var(--white); }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: var(--gold-light);
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 0 3px rgba(212,160,23,0.2);
+  }
+
+  .form-submit {
+    grid-column: 1 / -1;
+    margin-top: 0.5rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(184,134,11,0.4);
+  }
+
+  /* ========== CONTACT ========== */
+  .contact { background: var(--white); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .contact-info h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--blue-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .contact-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--green), var(--green-light));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-item h4 {
+    font-size: 0.85rem;
+    color: var(--green);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-item p {
+    font-size: 0.9rem;
+    color: #4a5568;
+    line-height: 1.6;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .social-btn {
+    width: 44px; height: 44px;
+    background: var(--blue-dark);
+    color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+  }
+
+  .social-btn:hover {
+    background: var(--green);
+    transform: translateY(-3px);
+  }
+
+  .contact-form {
+    background: var(--off-white);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid #e2e8f0;
+  }
+
+  .contact-form h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--blue-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .cf-group {
+    margin-bottom: 1rem;
+  }
+
+  .cf-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.4rem;
+  }
+
+  .cf-group input,
+  .cf-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background: var(--white);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    transition: all 0.3s;
+    outline: none;
+    resize: vertical;
+  }
+
+  .cf-group input:focus,
+  .cf-group textarea:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(0,98,51,0.1);
+  }
+
+  .btn-send {
+    width: 100%;
+    padding: 0.85rem;
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 0.5rem;
+  }
+
+  .btn-send:hover {
+    background: var(--green-light);
+    box-shadow: 0 6px 20px rgba(0,98,51,0.3);
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: var(--blue-dark);
+    color: rgba(255,255,255,0.8);
+    padding: 3rem 2rem 1.5rem;
+    border-top: 3px solid var(--gold);
+  }
+
+  .footer-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-brand img {
+    height: 60px;
+    filter: drop-shadow(0 0 8px rgba(212,160,23,0.5));
+  }
+
+  .footer-brand-name {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  .footer-brand-name span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--gold-light);
+    font-weight: 400;
+    margin-top: 0.2rem;
+  }
+
+  .footer-desc {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+    max-width: 320px;
+  }
+
+  .footer-col h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li {
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .footer-col ul li a:hover { color: var(--gold-light); }
+  .footer-col ul li a::before { content: '‹'; color: var(--green-light); }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-bottom p span { color: var(--gold-light); }
+
+  /* ========== MAP PLACEHOLDER ========== */
+  .map-placeholder {
+    height: 200px;
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--green-dark) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 2.5rem;
+    border: 1px solid rgba(212,160,23,0.3);
+    margin-top: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-placeholder span {
+    font-size: 0.9rem;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .map-pin {
+    position: absolute;
+    width: 14px; height: 14px;
+    background: var(--gold);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    animation: mapPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes mapPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212,160,23,0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(212,160,23,0); }
+  }
+
+  /* ========== SCROLL ANIMATIONS ========== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 900px) {
+    .about-grid,
+    .contact-grid,
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .tasks-grid,
+    .goals-grid,
+    .news-grid { grid-template-columns: 1fr 1fr; }
+
+    .resources-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .tasks-grid, .goals-grid, .news-grid,
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+    section { padding: 50px 1.2rem; }
+    .hero { padding: 90px 1.2rem 50px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-brand">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Coat_of_arms_of_Morocco.svg/200px-Coat_of_arms_of_Morocco.svg.png" alt="شعار المغرب">
+    <div class="nav-brand-text">
+      جمعية المختصين الاجتماعيين
+      <span>أكادير إداوتنان</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">من نحن</a></li>
+    <li><a href="#tasks">مهامنا</a></li>
+    <li><a href="#goals">أهدافنا</a></li>
+    <li><a href="#news">الأخبار</a></li>
+    <li><a href="#office">المكتب</a></li>
+    <li><a href="#contact">تواصل</a></li>
+    <li><a href="#membership" class="nav-cta">انضم إلينا</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-content">
+    <div class="hero-emblem">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Coat_of_arms_of_Morocco.svg/200px-Coat_of_arms_of_Morocco.svg.png" alt="شعار المملكة المغربية">
+    </div>
+    <p class="hero-kingdom">المملكة المغربية • المملكة الشريفة</p>
+    <h1 class="hero-title">
+      جمعية المختصين الاجتماعيين
+      <span class="highlight">مواكبة نفسية واجتماعية للمتعلمين</span>
+    </h1>
+    <p class="hero-region">أكادير إداوتنان — جهة سوس ماسة</p>
+    <blockquote class="hero-tagline">
+      معًا من أجل مدرسة دامجة وآمنة، ومتعلم متوازن نفسيًا واجتماعيًا، ومؤسسة تعليمية داعمة للنجاح والجودة.
+    </blockquote>
+    <div class="hero-buttons">
+      <a href="#membership" class="btn-primary">⊕ انضم للجمعية</a>
+      <a href="#contact" class="btn-secondary">✉ تواصل معنا</a>
+    </div>
+  </div>
+  <a href="#about" class="hero-scroll">⌄</a>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual fade-in">
+        <div class="about-card-main">
+          <span class="icon-big">🏫</span>
+          <h3>جمعية مهنية وطنية</h3>
+          <p>تأسست جمعية المختصين الاجتماعيين بأكادير إداوتنان لتكون الإطار المرجعي لكل المختصين العاملين في المؤسسات التعليمية بالجهة، ساعيةً إلى تطوير الممارسة المهنية ورفع جودة الخدمات الاجتماعية المدرسية.</p>
+          <div class="about-stats">
+            <div class="stat-box">
+              <span class="num">+150</span>
+              <div class="label">عضوًا منخرطًا</div>
+            </div>
+            <div class="stat-box">
+              <span class="num">+30</span>
+              <div class="label">مؤسسة تعليمية</div>
+            </div>
+            <div class="stat-box">
+              <span class="num">+20</span>
+              <div class="label">دورة تكوينية</div>
+            </div>
+            <div class="stat-box">
+              <span class="num">2020</span>
+              <div class="label">سنة التأسيس</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text fade-in">
+        <div class="section-badge">من نحن</div>
+        <h2>نحو <span>مدرسة دامجة</span> وآمنة للجميع</h2>
+        <p>جمعية المختصين الاجتماعيين بأكادير إداوتنان هيئة مهنية غير حكومية تُعنى بتطوير وتنظيم مهنة الاختصاص الاجتماعي في المؤسسات التعليمية وتعزيز المواكبة النفسية والاجتماعية للمتعلمين.</p>
+        <p>تعمل الجمعية على إيجاد بيئة تعليمية صحية وآمنة، وتوفير الدعم النفسي والاجتماعي اللازم لضمان تحقيق التلاميذ لمساراتهم الدراسية بكل نجاح.</p>
+        <ul class="about-list">
+          <li>الدعم المهني للمختصين الاجتماعيين</li>
+          <li>تطوير الخدمات الاجتماعية المدرسية</li>
+          <li>نشر ثقافة الصحة النفسية في الوسط المدرسي</li>
+          <li>تعزيز الشراكة مع الأسر والمؤسسات التعليمية</li>
+          <li>تنظيم تكوينات ومستجدات مهنية</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TASKS -->
+<section class="tasks" id="tasks">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-badge">مهامنا</div>
+      <h2 class="section-title">مهام المختص الاجتماعي</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">يضطلع المختص الاجتماعي بدور محوري داخل المؤسسة التعليمية لدعم المتعلمين وتحقيق المدرسة الدامجة</p>
+    </div>
+    <div class="tasks-grid">
+      <div class="task-card fade-in">
+        <span class="task-icon">🧠</span>
+        <h3>المواكبة النفسية والاجتماعية للمتعلمين</h3>
+        <p>تقديم الدعم النفسي والاجتماعي اللازم للمتعلمين الذين يواجهون صعوبات في مسارهم الدراسي أو الشخصي.</p>
+      </div>
+      <div class="task-card fade-in">
+        <span class="task-icon">🛡️</span>
+        <h3>المساهمة في الوقاية والحماية</h3>
+        <p>العمل على الوقاية من مختلف أشكال العنف والتهميش وضمان حماية المتعلمين في الوسط المدرسي.</p>
+      </div>
+      <div class="task-card fade-in">
+        <span class="task-icon">🤝</span>
+        <h3>تعزيز العلاقة بين الأسرة والمدرسة</h3>
+        <p>بناء جسر تواصل فعّال بين الأسر والمؤسسات التعليمية لضمان متابعة منسجمة للمتعلم.</p>
+      </div>
+      <div class="task-card fade-in">
+        <span class="task-icon">🎭</span>
+        <h3>تنشيط الحياة المدرسية</h3>
+        <p>تصميم وتنفيذ أنشطة اجتماعية وتربوية تُسهم في تنمية شخصية المتعلم وتعزيز الانتماء المدرسي.</p>
+      </div>
+      <div class="task-card fade-in">
+        <span class="task-icon">👂</span>
+        <h3>الإنصات والتوجيه والدعم</h3>
+        <p>توفير فضاء آمن للاستماع والتوجيه وتقديم الدعم النفسي والاجتماعي الملائم لكل حالة.</p>
+      </div>
+      <div class="task-card fade-in">
+        <span class="task-icon">📋</span>
+        <h3>التدخل الاجتماعي والتربوي</h3>
+        <p>اتخاذ إجراءات مهنية مدروسة للتدخل في الحالات الاجتماعية والتربوية المعقدة بكفاءة عالية.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section class="goals" id="goals">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-badge">أهدافنا</div>
+      <h2 class="section-title">أهداف الجمعية</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">نسعى إلى تحقيق منظومة تعليمية شاملة ودامجة تضمن نجاح كل متعلم</p>
+    </div>
+    <div class="goals-grid">
+      <div class="goal-item fade-in">
+        <div class="goal-num">الهدف 01</div>
+        <span class="goal-icon">👥</span>
+        <h3>دعم المختصين الاجتماعيين</h3>
+        <p>تقديم الدعم المهني والتكويني المستمر للمختصين الاجتماعيين العاملين في المؤسسات التعليمية.</p>
+      </div>
+      <div class="goal-item fade-in">
+        <div class="goal-num">الهدف 02</div>
+        <span class="goal-icon">🏛️</span>
+        <h3>تطوير الخدمات الاجتماعية</h3>
+        <p>السعي إلى تحسين جودة الخدمات الاجتماعية المدرسية ورفع مستوى الاحترافية في التدخل.</p>
+      </div>
+      <div class="goal-item fade-in">
+        <div class="goal-num">الهدف 03</div>
+        <span class="goal-icon">💚</span>
+        <h3>نشر ثقافة الدعم النفسي</h3>
+        <p>توعية مجتمع المدرسة بأهمية الصحة النفسية وتعميم ثقافة الدعم النفسي الاجتماعي.</p>
+      </div>
+      <div class="goal-item fade-in">
+        <div class="goal-num">الهدف 04</div>
+        <span class="goal-icon">🔒</span>
+        <h3>حماية المتعلمين</h3>
+        <p>العمل على تعزيز آليات الحماية وضمان بيئة مدرسية آمنة خالية من كل أشكال العنف.</p>
+      </div>
+      <div class="goal-item fade-in">
+        <div class="goal-num">الهدف 05</div>
+        <span class="goal-icon">🔗</span>
+        <h3>تعزيز التعاون المؤسسي</h3>
+        <p>بناء شراكات فعّالة مع المؤسسات التعليمية والأكاديميات والمديريات الإقليمية.</p>
+      </div>
+      <div class="goal-item fade-in">
+        <div class="goal-num">الهدف 06</div>
+        <span class="goal-icon">📚</span>
+        <h3>تكوينات وورشات عمل</h3>
+        <p>تنظيم دورات تكوينية وورشات عمل وندوات لرفع كفاءة الأعضاء ومواكبة المستجدات.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news" id="news">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-badge">الأخبار والأنشطة</div>
+      <h2 class="section-title">آخر المستجدات</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">تابعوا أحدث أخبار الجمعية وأنشطتها وبلاغاتها الرسمية</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card fade-in">
+        <div class="news-img green">🎓</div>
+        <div class="news-body">
+          <div class="news-tag">● دورة تكوينية</div>
+          <h3>دورة تكوينية في التدخل النفسي الاجتماعي مع المتعلمين</h3>
+          <p>نظّمت الجمعية دورة تكوينية متخصصة تناولت أساليب التدخل الاجتماعي والنفسي مع فئات المتعلمين المستهدفة.</p>
+          <div class="news-date">📅 مارس 2026 — أكادير</div>
+        </div>
+      </div>
+      <div class="news-card fade-in">
+        <div class="news-img blue">🤝</div>
+        <div class="news-body">
+          <div class="news-tag">● لقاء وطني</div>
+          <h3>لقاء جهوي لتبادل الخبرات بين المختصين الاجتماعيين</h3>
+          <p>عقدت الجمعية لقاءً جهوياً جمع مختصين اجتماعيين من مختلف مديريات جهة سوس ماسة لتبادل التجارب والممارسات.</p>
+          <div class="news-date">📅 فبراير 2026 — إنزكان</div>
+        </div>
+      </div>
+      <div class="news-card fade-in">
+        <div class="news-img gold">📢</div>
+        <div class="news-body">
+          <div class="news-tag">● بلاغ رسمي</div>
+          <h3>بلاغ حول الانخراط في الجمعية للموسم الدراسي 2025-2026</h3>
+          <p>تُعلن جمعية المختصين الاجتماعيين عن فتح باب الانخراط للموسم الدراسي الجاري في وجه جميع المختصين الراغبين.</p>
+          <div class="news-date">📅 يناير 2026 — أكادير</div>
+        </div>
+      </div>
+    </div>
+    <div class="center fade-in">
+      <a href="#" class="btn-primary">اقرأ المزيد من الأخبار ←</a>
+    </div>
+  </div>
+</section>
+
+<!-- OFFICE -->
+<section class="office" id="office">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-badge">المكتب المسيّر</div>
+      <h2 class="section-title">أعضاء المكتب</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">الفريق القيادي لجمعية المختصين الاجتماعيين بأكادير إداوتنان</p>
+    </div>
+  </div>
+
+  <!-- CAROUSEL -->
+  <div class="carousel-wrapper fade-in" id="carouselWrapper">
+    <div class="carousel-fade-right"></div>
+    <div class="carousel-fade-left"></div>
+    <div class="carousel-track" id="carouselTrack">
+
+      <!-- SET 1 -->
+      <div class="member-card">
+        <div class="member-avatar"><img src="m1.jpg" alt="مصطفى إدمولود"></div>
+        <div class="member-role">رئيس الجمعية</div>
+        <div class="member-name">مصطفى إدمولود</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m2.jpg" alt="عثمان الحياني"></div>
+        <div class="member-role">نائب رئيس الجمعية</div>
+        <div class="member-name">عثمان الحياني</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m3.jpg" alt="أحمد أبدرار"></div>
+        <div class="member-role">الكاتب العام</div>
+        <div class="member-name">أحمد أبدرار</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m4.jpg" alt="الحسين أغناج"></div>
+        <div class="member-role">أمين مال الجمعية</div>
+        <div class="member-name">الحسين أغناج</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m5.jpg" alt="فاطمة الزهراء مزكار"></div>
+        <div class="member-role">نائبة أمين مال</div>
+        <div class="member-name">فاطمة الزهراء مزكار</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m6.jpg" alt="هاجر صغير"></div>
+        <div class="member-role">نائبة الكاتب — الإعلام والتواصل</div>
+        <div class="member-name">هاجر صغير</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m7.jpg" alt="لمياء البداز"></div>
+        <div class="member-role">نائبة الكاتب — التخطيط والأنشطة</div>
+        <div class="member-name">لمياء البداز</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m8.jpg" alt="سلمى بوليد"></div>
+        <div class="member-role">نائبة الكاتب — المجلس الإداري</div>
+        <div class="member-name">سلمى بوليد</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m9.jpg" alt="حسناء عميمي"></div>
+        <div class="member-role">رئيسة مركز البحث الصحية</div>
+        <div class="member-name">حسناء عميمي</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m10.jpg" alt="مروان الواحسوني"></div>
+        <div class="member-role">رئيس مركز البحث النفسية</div>
+        <div class="member-name">مروان الواحسوني</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m11.jpg" alt="المهدي حسني"></div>
+        <div class="member-role">رئيس مركز البحث الاجتماعية</div>
+        <div class="member-name">المهدي حسني</div>
+      </div>
+
+      <!-- SET 2 (duplicate for infinite loop) -->
+      <div class="member-card">
+        <div class="member-avatar"><img src="m1.jpg" alt="مصطفى إدمولود"></div>
+        <div class="member-role">رئيس الجمعية</div>
+        <div class="member-name">مصطفى إدمولود</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m2.jpg" alt="عثمان الحياني"></div>
+        <div class="member-role">نائب رئيس الجمعية</div>
+        <div class="member-name">عثمان الحياني</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m3.jpg" alt="أحمد أبدرار"></div>
+        <div class="member-role">الكاتب العام</div>
+        <div class="member-name">أحمد أبدرار</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m4.jpg" alt="الحسين أغناج"></div>
+        <div class="member-role">أمين مال الجمعية</div>
+        <div class="member-name">الحسين أغناج</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m5.jpg" alt="فاطمة الزهراء مزكار"></div>
+        <div class="member-role">نائبة أمين مال</div>
+        <div class="member-name">فاطمة الزهراء مزكار</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m6.jpg" alt="هاجر صغير"></div>
+        <div class="member-role">نائبة الكاتب — الإعلام والتواصل</div>
+        <div class="member-name">هاجر صغير</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m7.jpg" alt="لمياء البداز"></div>
+        <div class="member-role">نائبة الكاتب — التخطيط والأنشطة</div>
+        <div class="member-name">لمياء البداز</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m8.jpg" alt="سلمى بوليد"></div>
+        <div class="member-role">نائبة الكاتب — المجلس الإداري</div>
+        <div class="member-name">سلمى بوليد</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m9.jpg" alt="حسناء عميمي"></div>
+        <div class="member-role">رئيسة مركز البحث الصحية</div>
+        <div class="member-name">حسناء عميمي</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m10.jpg" alt="مروان الواحسوني"></div>
+        <div class="member-role">رئيس مركز البحث النفسية</div>
+        <div class="member-name">مروان الواحسوني</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="m11.jpg" alt="المهدي حسني"></div>
+        <div class="member-role">رئيس مركز البحث الاجتماعية</div>
+        <div class="member-name">المهدي حسني</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="container">
+    <div class="carousel-controls fade-in">
+      <button class="carousel-btn" id="btnPause" title="إيقاف / تشغيل">⏸</button>
+      <button class="carousel-btn" id="btnSlower" title="تباطؤ">🐢</button>
+      <button class="carousel-btn" id="btnFaster" title="تسريع">🐇</button>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="membership" id="membership">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-badge">الانخراط</div>
+      <h2 class="section-title">انضم إلى الجمعية</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">كن جزءاً من مجتمع المختصين الاجتماعيين وساهم في بناء المدرسة الدامجة</p>
+    </div>
+    <div class="form-grid fade-in">
+      <div class="form-group">
+        <label>الاسم الكامل *</label>
+        <input type="text" placeholder="أدخل اسمك الكامل">
+      </div>
+      <div class="form-group">
+        <label>المدينة *</label>
+        <input type="text" placeholder="مدينة الإقامة">
+      </div>
+      <div class="form-group">
+        <label>المؤسسة التعليمية *</label>
+        <input type="text" placeholder="اسم المؤسسة التي تعمل بها">
+      </div>
+      <div class="form-group">
+        <label>رقم الهاتف *</label>
+        <input type="tel" placeholder="06XXXXXXXX">
+      </div>
+      <div class="form-group">
+        <label>البريد الإلكتروني *</label>
+        <input type="email" placeholder="example@mail.com">
+      </div>
+      <div class="form-group">
+        <label>الصفة المهنية *</label>
+        <select>
+          <option value="">— اختر الصفة —</option>
+          <option>مختص اجتماعي</option>
+          <option>مختصة اجتماعية</option>
+          <option>أستاذ تعليم ابتدائي</option>
+          <option>أستاذ تعليم إعدادي</option>
+          <option>أستاذ تعليم ثانوي</option>
+          <option>مدير مؤسسة</option>
+          <option>أخرى</option>
+        </select>
+      </div>
+      <div class="form-group form-submit">
+        <button class="btn-submit">⊕ إرسال طلب الانخراط</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-badge">تواصل معنا</div>
+      <h2 class="section-title">نحن هنا للخدمة</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-grid fade-in">
+      <div class="contact-info">
+        <h3>معلومات التواصل</h3>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>العنوان</h4>
+            <p>أكادير إداوتنان، جهة سوس ماسة<br>المملكة المغربية</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>الهاتف</h4>
+            <p>+212 6XX-XXXXXX</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div>
+            <h4>البريد الإلكتروني</h4>
+            <p>contact@amsia-agadir.ma</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">⏰</div>
+          <div>
+            <h4>أوقات التواصل</h4>
+            <p>الإثنين – الجمعة: 9:00 – 17:00<br>يُغلق أيام السبت والأحد</p>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-btn">f</a>
+          <a href="#" class="social-btn">in</a>
+          <a href="#" class="social-btn">✉</a>
+          <a href="#" class="social-btn">📱</a>
+        </div>
+        <div class="map-placeholder">
+          <span>🗺️</span>
+          <span>أكادير إداوتنان — المغرب</span>
+          <div class="map-pin"></div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>أرسل لنا رسالة</h3>
+        <div class="cf-group">
+          <label>الاسم الكامل</label>
+          <input type="text" placeholder="اسمك الكامل">
+        </div>
+        <div class="cf-group">
+          <label>البريد الإلكتروني</label>
+          <input type="email" placeholder="بريدك الإلكتروني">
+        </div>
+        <div class="cf-group">
+          <label>الموضوع</label>
+          <input type="text" placeholder="موضوع الرسالة">
+        </div>
+        <div class="cf-group">
+          <label>الرسالة</label>
+          <textarea rows="5" placeholder="اكتب رسالتك هنا..."></textarea>
+        </div>
+        <button class="btn-send">✉ إرسال الرسالة</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Coat_of_arms_of_Morocco.svg/200px-Coat_of_arms_of_Morocco.svg.png" alt="شعار">
+        <div class="footer-brand-name">
+          جمعية المختصين الاجتماعيين
+          <span>أكادير إداوتنان — جهة سوس ماسة</span>
+        </div>
+      </div>
+      <p class="footer-desc">جمعية مهنية وطنية تهدف إلى تطوير مهنة المختص الاجتماعي بالمؤسسات التعليمية وتعزيز المواكبة النفسية والاجتماعية للمتعلمين.</p>
+    </div>
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="#about">من نحن</a></li>
+        <li><a href="#tasks">مهامنا</a></li>
+        <li><a href="#goals">أهدافنا</a></li>
+        <li><a href="#news">الأخبار</a></li>
+        <li><a href="#office">المكتب</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>خدماتنا</h4>
+      <ul>
+        <li><a href="#membership">الانخراط</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+        <li><a href="#">الدورات التكوينية</a></li>
+        <li><a href="#">تحميل الوثائق</a></li>
+        <li><a href="#">البلاغات الرسمية</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span>2026</span> جمعية المختصين الاجتماعيين — أكادير إداوتنان. جميع الحقوق محفوظة.</p>
+    <p>تصميم يعكس <span>الهوية المغربية الرسمية</span></p>
+  </div>
+</footer>
+
+<script>
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Stagger children
+  document.querySelectorAll('.tasks-grid, .goals-grid, .news-grid').forEach(grid => {
+    grid.querySelectorAll('.fade-in').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.08}s`;
+    });
+  });
+
+  // Smooth nav active
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 100;
+      if (window.scrollY >= top) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--gold-light)' : '';
+    });
+  });
+
+  // ===== CAROUSEL (JS-driven, works on mobile/touch) =====
+  (function() {
+    const track = document.getElementById('carouselTrack');
+    const btnPause = document.getElementById('btnPause');
+    const btnSlower = document.getElementById('btnSlower');
+    const btnFaster = document.getElementById('btnFaster');
+
+    let pos = 0;
+    let speed = 0.55;
+    let running = true;
+    let dragging = false;
+    let dragStartX = 0;
+    let dragStartPos = 0;
+
+    function getHalfWidth() {
+      return track.scrollWidth / 2;
+    }
+
+    function step() {
+      if (running && !dragging) {
+        pos += speed;
+        const half = getHalfWidth();
+        if (pos >= half) pos -= half;
+      }
+      track.style.transform = 'translateX(-' + pos + 'px)';
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+
+    btnPause.addEventListener('click', () => {
+      running = !running;
+      btnPause.textContent = running ? '⏸' : '▶';
+    });
+    btnSlower.addEventListener('click', () => { speed = Math.max(0.15, +(speed - 0.15).toFixed(2)); });
+    btnFaster.addEventListener('click', () => { speed = Math.min(2.5,  +(speed + 0.2).toFixed(2)); });
+
+    // Mouse drag
+    track.addEventListener('mousedown', (e) => {
+      dragging = true; dragStartX = e.clientX; dragStartPos = pos;
+      track.style.cursor = 'grabbing';
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      let p = dragStartPos + (dragStartX - e.clientX);
+      const half = getHalfWidth();
+      if (p < 0) p += half; if (p >= half) p -= half;
+      pos = p;
+    });
+    window.addEventListener('mouseup', () => { dragging = false; track.style.cursor = 'grab'; });
+
+    // Touch drag
+    track.addEventListener('touchstart', (e) => {
+      dragging = true; dragStartX = e.touches[0].clientX; dragStartPos = pos;
+    }, { passive: true });
+    track.addEventListener('touchmove', (e) => {
+      if (!dragging) return;
+      let p = dragStartPos + (dragStartX - e.touches[0].clientX);
+      const half = getHalfWidth();
+      if (p < 0) p += half; if (p >= half) p -= half;
+      pos = p;
+    }, { passive: true });
+    track.addEventListener('touchend', () => { dragging = false; });
+  })();
+
+  // Form submit feedback
+  document.querySelectorAll('.btn-submit, .btn-send').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const orig = btn.textContent;
+      btn.textContent = '✓ تم الإرسال بنجاح!';
+      btn.style.background = 'var(--green)';
+      setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 3000);
+    });
+  });
+</script>
+</body>
+</html>
